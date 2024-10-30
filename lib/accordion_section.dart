@@ -196,7 +196,7 @@ class AccordionSection extends StatelessWidget with CommonParams {
                         ? headerBackgroundColorOpened
                         : headerBackgroundColor) ??
                     Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.vertical(
+                borderRadius:  disableBorderContent == true ? null : BorderRadius.vertical(
                   top: Radius.circular(_borderRadius),
                   bottom: Radius.circular(_isOpen ? 0 : _borderRadius),
                 ),
