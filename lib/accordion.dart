@@ -105,6 +105,7 @@ class Accordion extends StatelessWidget with CommonParams {
     Widget? rightIcon,
     Widget? header,
     bool? flipRightIconIfOpen,
+    bool? disableBorderContent = false,
     Color? contentBackgroundColor,
     Color? contentBorderColor,
     double? contentBorderWidth,
@@ -131,6 +132,7 @@ class Accordion extends StatelessWidget with CommonParams {
     this.leftIcon = leftIcon;
     this.rightIcon = rightIcon;
     this.flipRightIconIfOpen?.value = flipRightIconIfOpen ?? true;
+    this.disableBorderContent?.value = disableBorderContent ?? false;
     this.contentBackgroundColor = contentBackgroundColor;
     this.contentBorderColor = contentBorderColor;
     this.contentBorderWidth = contentBorderWidth;
@@ -232,6 +234,8 @@ class Accordion extends StatelessWidget with CommonParams {
                         color: Colors.white60,
                         size: 20,
                       ),
+                  disableBorderContent: child.disableBorderContent?.value ??
+                      disableBorderContent?.value,
                   flipRightIconIfOpen: child.flipRightIconIfOpen?.value ??
                       flipRightIconIfOpen?.value,
                   paddingBetweenClosedSections:

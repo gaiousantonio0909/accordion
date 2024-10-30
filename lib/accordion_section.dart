@@ -12,6 +12,7 @@ import 'package:scroll_to_index/scroll_to_index.dart';
 /// Usage:
 /// ```dart
 /// Accordion(
+///   disableBorderContent: true, // Optional
 /// 	maxOpenSections: 1,
 /// 	leftIcon: Icon(Icons.audiotrack, color: Colors.white),
 /// 	children: [
@@ -60,6 +61,7 @@ class AccordionSection extends StatelessWidget with CommonParams {
     bool? flipRightIconIfOpen = true,
     Color? contentBackgroundColor,
     Color? contentBorderColor,
+    bool? disableBorderContent = false,
     double? contentBorderWidth,
     double? contentBorderRadius,
     double? contentHorizontalPadding,
@@ -82,6 +84,7 @@ class AccordionSection extends StatelessWidget with CommonParams {
     this.leftIcon = leftIcon;
     this.rightIcon = rightIcon;
     this.flipRightIconIfOpen?.value = flipRightIconIfOpen ?? true;
+    this.disableBorderContent?.value = disableBorderContent ?? true;
     this.contentBackgroundColor = contentBackgroundColor;
     this.contentBorderColor = contentBorderColor;
     this.contentBorderWidth = contentBorderWidth ?? 1;
@@ -245,14 +248,14 @@ class AccordionSection extends StatelessWidget with CommonParams {
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
                             color: Colors.white,
-                            borderRadius: BorderRadius.vertical(
+                            borderRadius: disableBorderContent == true ? null : BorderRadius.vertical(
                                 bottom: Radius.circular(
                                     contentBorderRadius! / 1.02))),
                         child: Container(
                           clipBehavior: Clip.antiAlias,
                           decoration: BoxDecoration(
                               color: contentBackgroundColor,
-                              borderRadius: BorderRadius.vertical(
+                              borderRadius: disableBorderContent == true ? null : BorderRadius.vertical(
                                   bottom: Radius.circular(
                                       contentBorderRadius! / 1.02))),
                           child: Padding(
