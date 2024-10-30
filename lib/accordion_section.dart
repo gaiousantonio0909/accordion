@@ -229,50 +229,85 @@ class AccordionSection extends StatelessWidget with CommonParams {
               child: ScaleTransition(
                 scale: sectionCtrl.controller,
                 child: Center(
-                  child: Container(
-                    clipBehavior: Clip.antiAlias,
-                    decoration: BoxDecoration(
-                      color:
-                          contentBorderColor ?? Theme.of(context).primaryColor,
-                      borderRadius: disableBorderContent == true ? null : BorderRadius.vertical(
-                          bottom: Radius.circular(contentBorderRadius!)),
-                    ),
-                    child: Padding(
-                     padding: disableBorderContent == true
-                          ? EdgeInsets.all(0)
-                          : EdgeInsets.fromLTRB(
+                  child: disableBorderContent == true
+                      ? Container(
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: disableBorderContent == true
+                                  ? null
+                                  : BorderRadius.vertical(
+                                      bottom: Radius.circular(
+                                          contentBorderRadius! / 1.02))),
+                          child: Container(
+                            clipBehavior: Clip.antiAlias,
+                            decoration: BoxDecoration(
+                                color: contentBackgroundColor,
+                                borderRadius: disableBorderContent == true
+                                    ? null
+                                    : BorderRadius.vertical(
+                                        bottom: Radius.circular(
+                                            contentBorderRadius! / 1.02))),
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: contentHorizontalPadding!,
+                                vertical: contentVerticalPadding!,
+                              ),
+                              child: Center(
+                                child: content,
+                              ),
+                            ),
+                          ),
+                        )
+                      : Container(
+                          clipBehavior: Clip.antiAlias,
+                          decoration: BoxDecoration(
+                            color: contentBorderColor ??
+                                Theme.of(context).primaryColor,
+                            borderRadius: disableBorderContent == true
+                                ? null
+                                : BorderRadius.vertical(
+                                    bottom:
+                                        Radius.circular(contentBorderRadius!)),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.fromLTRB(
                               contentBorderWidth ?? 1,
                               0,
                               contentBorderWidth ?? 1,
                               contentBorderWidth ?? 1,
                             ),
-                      child: Container(
-                        clipBehavior: Clip.antiAlias,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: disableBorderContent == true ? null : BorderRadius.vertical(
-                                bottom: Radius.circular(
-                                    contentBorderRadius! / 1.02))),
-                        child: Container(
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                              color: contentBackgroundColor,
-                              borderRadius: disableBorderContent == true ? null : BorderRadius.vertical(
-                                  bottom: Radius.circular(
-                                      contentBorderRadius! / 1.02))),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: contentHorizontalPadding!,
-                              vertical: contentVerticalPadding!,
-                            ),
-                            child: Center(
-                              child: content,
+                            child: Container(
+                              clipBehavior: Clip.antiAlias,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: disableBorderContent == true
+                                      ? null
+                                      : BorderRadius.vertical(
+                                          bottom: Radius.circular(
+                                              contentBorderRadius! / 1.02))),
+                              child: Container(
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                    color: contentBackgroundColor,
+                                    borderRadius: disableBorderContent == true
+                                        ? null
+                                        : BorderRadius.vertical(
+                                            bottom: Radius.circular(
+                                                contentBorderRadius! / 1.02))),
+                                child: Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: contentHorizontalPadding!,
+                                    vertical: contentVerticalPadding!,
+                                  ),
+                                  child: Center(
+                                    child: content,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
                 ),
               ),
             ),
