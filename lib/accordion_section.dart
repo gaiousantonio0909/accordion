@@ -238,12 +238,14 @@ class AccordionSection extends StatelessWidget with CommonParams {
                           bottom: Radius.circular(contentBorderRadius!)),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        contentBorderWidth ?? 1,
-                        0,
-                        contentBorderWidth ?? 1,
-                        contentBorderWidth ?? 1,
-                      ),
+                     padding: disableBorderContent == true
+                          ? EdgeInsets.all(0)
+                          : EdgeInsets.fromLTRB(
+                              contentBorderWidth ?? 1,
+                              0,
+                              contentBorderWidth ?? 1,
+                              contentBorderWidth ?? 1,
+                            ),
                       child: Container(
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
