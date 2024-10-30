@@ -231,15 +231,6 @@ class AccordionSection extends StatelessWidget with CommonParams {
                 child: Center(
                   child: disableBorderContent == true
                       ? Container(
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: disableBorderContent == true
-                                  ? null
-                                  : BorderRadius.vertical(
-                                      bottom: Radius.circular(
-                                          contentBorderRadius! / 1.02))),
-                          child: Container(
                             clipBehavior: Clip.antiAlias,
                             decoration: BoxDecoration(
                                 color: contentBackgroundColor,
@@ -257,7 +248,6 @@ class AccordionSection extends StatelessWidget with CommonParams {
                                 child: content,
                               ),
                             ),
-                          ),
                         )
                       : Container(
                           clipBehavior: Clip.antiAlias,
